@@ -1,0 +1,15 @@
+<!-- <p>{{ title }}</p>
+<p>{{ message }}</p>
+<button type="button" md-raised-button 
+    (click)="dialogRef.close(true)">OK</button>
+<button type="button" md-button 
+    (click)="dialogRef.close()">Cancel</button> -->
+
+    <h1 md-dialog-title>{{data.title}}</h1>
+    <div md-dialog-content>
+      <p>{{data.message}}</p>
+    </div>
+    <div md-dialog-actions>
+      <button md-button [md-dialog-close]="true" tabindex="2">Ok</button>
+      <button md-button (click)="onNoClick()" tabindex="-1">Cancel</button>
+    </div>    

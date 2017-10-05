@@ -1,0 +1,11 @@
+<md-card style="width: 500px;">
+  <md-card-header>
+    <h1>Add New Event</h1>
+  </md-card-header>
+  <md-card-content>
+    <event-form #form></event-form>
+  </md-card-content>
+</md-card>
+<br />
+<button md-raised-button color="primary" (click)="save(form)">Save New Event</button>
+<button md-raised-button color="primary" routerLink="/events">Return To List</button>

@@ -1,0 +1,10 @@
+{
+  "name": "library-events",
+  "version": "0.0.0",
+  "license": "MIT",
+  "dependencies": {
+    "firebase": "^4.4.0",
+    "firebase-admin": "^5.3.0",
+    "firebase-queue": "^1.6.1"
+  }
+}

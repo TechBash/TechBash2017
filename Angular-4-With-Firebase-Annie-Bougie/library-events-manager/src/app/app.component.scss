@@ -1,0 +1,39 @@
+/* md-sidenav {
+  background-color: lightgray;
+} */
+
+.menu-active  {
+  text-decoration: underline;
+  
+}
+
+a {
+  color: black;
+  text-decoration: none;
+  padding-right: 5px;
+}
+a:hover{
+  color: fuchsia
+}.app-home {
+  color: white;
+}
+
+
+h4 {
+  margin-bottom: 0px;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+md-sidenav {
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color:lightgray;
+}
+
+.demo-content {
+  padding: 32px;
+  box-sizing: border-box;
+}

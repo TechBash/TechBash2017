@@ -1,0 +1,12 @@
+<h3>Event Name: {{(event)?.name}}</h3>
+<form  [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
+  <table>
+    <tr>
+      <td>
+          <input type="text" placeholder="Event Name" name="name" formControlName="name">
+      </td>
+    </tr>
+  </table>
+  <button type="submit">Submit</button>
+</form>
+<button (click)="like()">Like</button>

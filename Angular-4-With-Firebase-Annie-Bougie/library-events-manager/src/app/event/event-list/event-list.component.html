@@ -1,0 +1,21 @@
+<div >
+  <h2>Events List</h2>
+  <p>    <button md-raised-button color="primary" routerLink="/new-event">New event</button></p>
+  <table >
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Url</th>
+
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let event of (events$ | async)">
+        <td style="width: 200px;">{{event.name}}</td>
+        <td style="width: 200px;"><a href="events/{{event.url}}"> {{event.url}}</a></td>
+
+      </tr>
+    </tbody>
+  </table>
+</div>

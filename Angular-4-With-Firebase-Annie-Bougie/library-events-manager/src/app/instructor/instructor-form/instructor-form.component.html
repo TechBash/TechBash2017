@@ -1,0 +1,48 @@
+<form [formGroup]="form" autocomplete="off" novalidate>
+  <table>
+    <tr>
+      <td>
+        <md-form-field>
+          <input mdInput placeholder="Username" name="username" formControlName="username">
+        </md-form-field>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <md-form-field>
+          <input mdInput type="text" placeholder="Name" name="name" formControlName="name">
+        </md-form-field>
+      </td>
+    </tr>
+    <tr>
+    </tr>
+    <tr>
+      <td>
+        <md-form-field>
+          <input mdInput placeholder="Phone" name="phone" formControlName="phone">
+        </md-form-field>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <md-form-field>
+          <input mdInput placeholder="Email" name="email" formControlName="email" type="email" >
+        </md-form-field>
+      </td>
+    </tr>
+    <tr>
+        <td>
+          <md-form-field>
+            <textarea style="height: 100px;" mdInput placeholder="Bio" name="bio" formControlName="bio"></textarea>
+          </md-form-field>
+        </td>
+      </tr>
+      <tr>
+          <td>
+            <md-form-field>
+              <input mdInput placeholder="Image Url" name="imageUrl" formControlName="imageUrl">
+            </md-form-field>
+          </td>
+        </tr>
+  </table>
+</form>

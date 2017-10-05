@@ -1,0 +1,69 @@
+<md-sidenav-container color="accent" class="demo-root" fullscreen>
+  <md-sidenav [opened]="true" mode="side" #start>
+    <a md-list-item routerLink="home"
+      routerLinkActive="menu-active">
+      Home
+    </a>
+
+      <h4>Events</h4>
+    <md-nav-list>
+        <md-list>
+            <md-list-item><a 
+          md-list-item 
+          routerLink="events" 
+          routerLinkActive="menu-active">
+            Events
+        </a></md-list-item>
+        <md-list-item><a 
+          md-list-item 
+          routerLink="new-event" 
+          routerLinkActive="menu-active">
+          New Event
+        </a></md-list-item>
+      </md-list>
+    </md-nav-list>
+    <h4>Instructors</h4>
+    <md-nav-list>
+      <md-list>
+        <md-list-item><a md-list-item routerLink="instructors" routerLinkActive="menu-active">Instructors</a></md-list-item>
+        <md-list-item><a md-list-item routerLink="new-instructor" routerLinkActive="menu-active">New Instructor</a></md-list-item>
+      </md-list>
+    </md-nav-list>
+    <h4>Schedule</h4>
+    <md-nav-list>
+        <md-list>
+          
+         <md-list-item><a md-list-item routerLink="new-schedule" routerLinkActive="menu-active">Schedule an Event</a></md-list-item>
+        </md-list>
+      </md-nav-list>
+    <hr />
+    <button md-button tabindex="-1" (click)="start.close()">CLOSE</button>
+  </md-sidenav>
+  <div>
+    <md-toolbar color="primary">
+      <button md-icon-button (click)="start.open()">
+        <md-icon class="md-24">menu</md-icon>
+      </button>
+      
+          <span><a href="/home" class="app-home">Brown County Library Events</a></span>
+          <span class="spacer"></span>
+        
+          <span *ngIf="!loggedIn"><button md-button (click)="loginWithGoogle()">Login with Google</button> </span>
+          <span *ngIf="!loggedIn" ><button md-button (click)="login()">Login Anonymously</button></span>
+          <span *ngIf="loggedIn"><button md-button (click)="logout()">Logout</button></span>
+        
+      
+    </md-toolbar>
+
+    <div layout="column" layout-md="column"  class="demo-content">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</md-sidenav-container>
+
+<div>
+  <h3>Messages</h3>
+  <h3>{{(message | async)?.notification.title}}</h3>
+
+  <p>{{ message | async | json }}</p>
+</div> 

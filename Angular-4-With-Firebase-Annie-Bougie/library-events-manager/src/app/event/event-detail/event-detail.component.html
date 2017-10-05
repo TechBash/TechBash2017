@@ -1,0 +1,19 @@
+<md-card style="width: 500px;">
+  <md-card-header>
+    <md-card-title>
+      <h1>{{ event.name }}</h1>
+    </md-card-title>
+  </md-card-header>
+  <img md-card-image [src]="[event.imageUrl]">
+  <md-card-content>
+    <p><span>Name: </span>{{ event.name }}</p>
+    <p><span>Description: </span>{{ event.description}}</p>
+  </md-card-content>
+  <md-card-actions>
+      <button md-button color="primary" [routerLink]="['/new-schedule']" [queryParams]="{eventUrl: event.url }">Schedule This Event</button>
+      <button md-button color="primary" routerLink="instructors">Link Instructors</button><br /><br />
+    <button md-raised-button color="primary" routerLink="/new-event">New event</button>
+    <button md-raised-button color="primary" routerLink="edit">Edit event</button>
+    <button md-raised-button color="accent" (click)="delete()">Delete event</button>
+  </md-card-actions>
+</md-card>
