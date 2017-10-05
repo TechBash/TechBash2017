@@ -1,0 +1,7 @@
+<ul>
+  <li *ngFor="let event of (events$ | async)">{{event.name}}</li>
+</ul>
+<div>
+  <input type="text" placeholder="Event Name" name="name" #input >
+  <button (click)="addEvent(input.value)">Add Event</button>
+</div>

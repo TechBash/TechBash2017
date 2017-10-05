@@ -1,0 +1,11 @@
+<md-card style="width: 500px;">
+    <md-card-header>
+      <h1>Add New Instructor</h1>
+    </md-card-header>
+    <md-card-content>
+      <instructor-form #form></instructor-form>
+    </md-card-content>
+  </md-card>
+<br />
+<button md-raised-button color="primary" (click)="save(form)">Save New Instructor</button>
+<button md-raised-button color="primary" (click)="goBack()">Back</button>

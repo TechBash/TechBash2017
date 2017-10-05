@@ -1,0 +1,28 @@
+<md-card style="width: 500px;">
+  <md-card-header>
+    <md-card-title>
+      <h1>{{ (instructor$ | async)?.name }}</h1>
+    </md-card-title>
+    <img md-card-avatar src="https://source.unsplash.com/random/200x200">
+
+  </md-card-header>
+  <img md-card-image [src]="[(instructor$ | async)?.imageUrl]">
+  <md-card-content>
+    <p><span>Name: </span>{{ (instructor$ | async)?.name }}</p>
+    <p><span>Username: </span>{{ (instructor$ | async)?.username }}</p>
+    <p><span>Phone: </span>{{ (instructor$ | async)?.phone }}</p>
+    <p><span>Bio: </span>{{ (instructor$ | async)?.bio}}</p>
+  </md-card-content>
+  <md-card-actions>
+    <!-- <button md-fab>LIKE</button> -->
+    <button md-icon-button color="accent">
+          <md-icon class="md-24" aria-label="Example icon-button with a heart icon" (click)="like()">favorite</md-icon>
+        </button>
+    <span class="spacer"></span>
+    <span>{{ (instructor$ | async)?.likes }}</span>
+    <button md-button color="primary" routerLink="events">Link To Events</button><br /><br />
+    <button md-raised-button color="primary" routerLink="/new-instructor">New Instructor</button>
+    <button md-raised-button color="primary" routerLink="edit">Edit Instructor</button>
+    <button md-raised-button color="primary" (click)="delete()">Delete Instructor</button>
+  </md-card-actions>
+</md-card>

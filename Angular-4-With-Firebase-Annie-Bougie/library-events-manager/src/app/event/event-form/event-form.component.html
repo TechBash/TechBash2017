@@ -1,0 +1,34 @@
+<form [formGroup]="form" autocomplete="off" novalidate>
+  <table>
+    <tr>
+      <td>
+        <md-form-field>
+          <input mdInput type="text" placeholder="Name" name="name" formControlName="name">
+        </md-form-field>
+      </td>
+    </tr>
+    <tr>
+    </tr>
+    <tr>
+      <td>
+        <md-form-field>
+          <input mdInput placeholder="Event Url" name="url" formControlName="url">
+        </md-form-field>
+      </td>
+    </tr>
+    <tr>
+        <td>
+          <md-form-field>
+            <textarea style="height: 100px;" mdInput placeholder="Description" name="description" formControlName="description"></textarea>
+          </md-form-field>
+        </td>
+      </tr>
+      <tr>
+          <td>
+            <md-form-field>
+              <input mdInput placeholder="Image Url" name="imageUrl" formControlName="imageUrl">
+            </md-form-field>
+          </td>
+        </tr>
+  </table>
+</form>

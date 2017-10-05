@@ -1,0 +1,52 @@
+<form [formGroup]="form">
+    <input name="selectedUrl" formControlName="selectedUrl" type="hidden" [value]="[(selectedEventUrl)]">
+  <table>
+    <tr>
+      <td>
+        <md-select 
+        placeholder="Event" 
+        name="event" 
+        formControlName="event"
+        [compareWith]="isSelected">
+          <md-option *ngFor="let event of (events$ | async)" [value]="event">{{ event.name }}</md-option>
+        </md-select>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <md-select placeholder="Instructor" name="instructor" formControlName="instructor">
+          <md-option *ngFor="let instructor of (instructors$ | async)" [value]="instructor">{{instructor.name}}</md-option>
+        </md-select>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <md-select placeholder="Branch" name="branch" formControlName="branch">
+          <md-option *ngFor="let branch of branches " [value]="branch">{{branch}}</md-option>
+        </md-select>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <md-form-field>
+          <input mdInput 
+            [mdDatepicker]="eventDatePicker" 
+            name="eventDate" 
+            formControlName="eventDate"
+            (dateChange)="onEventDateChange($event)"
+            placeholder="Choose a date">
+            
+          <md-datepicker-toggle mdSuffix [for]="eventDatePicker"></md-datepicker-toggle>
+          <md-datepicker #eventDatePicker></md-datepicker>
+        </md-form-field>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <md-form-field>
+          <input mdInput placeholder="Event Time" [value]="eventTime" type="time" name="eventTime" formControlName="eventTime" >
+        </md-form-field>
+      </td>
+    </tr>
+  </table>
+</form>

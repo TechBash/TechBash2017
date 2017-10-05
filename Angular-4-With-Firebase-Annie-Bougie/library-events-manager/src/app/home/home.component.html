@@ -1,0 +1,16 @@
+<md-grid-list cols="3" rowHeight="175px" gutterSize="10px;" style="margin-top: 10px;">
+  <md-grid-tile *ngFor="let event of (events$ | async)">
+    <md-card style="height: 125px; width:200px;">
+      <md-card-header>
+        <md-card-title style="height:70px;">
+         
+            <p> {{event.name}}</p>
+
+        </md-card-title>
+      </md-card-header>
+      <md-card-actions>
+        <button color="accent" md-raised-button routerLink="/events/{{event.url}}">Details</button>
+      </md-card-actions>
+    </md-card>
+  </md-grid-tile>
+</md-grid-list>

@@ -1,0 +1,12 @@
+<md-card style="width: 500px;">
+  <md-card-header>
+    <h1>Schedule Event</h1>
+  </md-card-header>
+  <md-card-content>
+    <schedule-form #form [selectedEventUrl]="eventUrl"></schedule-form>
+  </md-card-content>
+</md-card>
+<br />
+<button md-raised-button color="primary" (click)="save(form)">Save Scheduled Event</button>
+<button md-raised-button color="primary" (click)="goBack()">Back</button>
+<button md-button color="accent" (click)="signUpForNotifications()" >Get Notifications!</button>
