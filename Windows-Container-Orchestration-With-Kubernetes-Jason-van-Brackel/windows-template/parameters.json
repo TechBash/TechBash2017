@@ -1,0 +1,45 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "masterDnsNamePrefix": {
+            "value": "k8sjvbmgmt"
+        },
+        "agentDnsNamePrefix": {
+            "value": "k8sjvbagents"
+        },
+        "agentCount": {
+            "value": 2
+        },
+        "agentVMSize": {
+            "value": "Standard_DS2"
+        },
+        "linuxAdminUsername": {
+            "value": "jvb"
+        },
+        "windowsAgentAdminUsername": {
+            "value": "jvb"
+        },
+        "windowsAgentAdminPassword": {
+            "value": "jvbp@ssw0rd123"
+        },
+        "orchestratorType": {
+            "value": "Kubernetes"
+        },
+        "masterCount": {
+            "value": 1
+        },
+        "sshRSAPublicKey": {
+            "value": "ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEAkWJRxeBL5foHVr7XlIywO6zf/MKU3uoh1yAwObiwUDAfg0Q8shIN9QSOGh3PC/iQ9W65fT5j85BacCtuN/NBc3M2rqVHnQvAy7a7iVYBIcMU6Rd740SRiRTazkF5IKjIRstzawHVdH8J3I0W9Sh6tIdgN7WcpMpeqtu4ooCVh8ZlhxSjzXkGysKI46YHpJK8U2rtCa8upgifzsaevj9x/Jnvv1yP/rkQ+YZIGh/YlaD76E0tkNqDuKr5mbhXpXfnn0jOTXVjhfB+uRmrCklTXhNovfAXJSvIhFreXaJu0pxlJcWhIgcW21JZCL6uKBfrs+I4nSYqTuYaJk/NKNIXkQ=="
+        },
+        "servicePrincipalClientId": {
+            "value": "https://k8sjvb/k8sjvb"
+        },
+        "servicePrincipalClientSecret": {
+            "value": "jvbp@ssw0rd"
+        },
+        "osType": {
+            "value": "Windows"
+        }
+    }
+}

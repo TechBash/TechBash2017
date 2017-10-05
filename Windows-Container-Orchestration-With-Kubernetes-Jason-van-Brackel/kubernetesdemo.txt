@@ -1,0 +1,93 @@
+#We're going to use chrome quite a bit so let's set an alias
+Set-Alias -Name chrome -Value "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"
+
+# Welcome
+chrome https://www.twitter.com/jasonvanbrackel
+
+# I've set an alias for chrome
+Get-Alias chrome
+
+# Prerequisites
+# Prerequisite #1 Generate RSA Keys
+# Download Putty Key Generator
+chrome "http://www.putty.org/"
+
+# Create a keypair with puttygen
+& "C:\Program Files\PuTTY\puttygen.exe"
+
+# Prerequisite #2 AzureRM Powershell Modules
+Install-Module AzureRM
+Import-Module AzureRM
+
+# Prerequisite #3 Create an Azure Active Directory Service Principal
+# What is an Azure Active Directory Service Principal
+chrome https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-application-objects
+
+# There are lots of ways to do this
+chrome https://docs.microsoft.com/en-us/azure/container-service/container-service-kubernetes-service-principal
+
+# Let's do it in Powershell
+# Login
+Login-AzureRmAccount
+# Create the AD Application
+$app = New-AzureRmADApplication -DisplayName "k8sjvb" -HomePage "https://k8sjvb/k8sjvb" -IdentifierUris "https://k8sjvb/k8sjvb" -Password "jvbp@ssw0rd"
+
+# Create the Service Principal
+New-AzureRmADServicePrincipal -ApplicationId $app.ApplicationId
+Start-Sleep 15
+
+# Assign the Role to the Service Principal
+New-AzureRmRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $app.ApplicationId
+
+# For more information
+chrome https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-authenticate-service-principal
+
+# Create the cluster in the portal
+chrome https://portal.azure.com
+
+# Or use a RM template
+#Push-Location windows-template
+#.\deploy.ps1 -subscriptionId 59437628-48d8-49cc-9f8c-d8e9ccf216f7 -resourceGroupName jvbk8sphl -resourceGroupLocation eastus -deploymentName k8sphldep
+#Pop-Location
+
+# We'll need somethings first
+# 1. Download Python we'll need it to get the Azure cli
+chrome https://www.python.org/
+# 2. We'll also need the PyPI
+chrome https://pip.pypa.io/en/stable/
+
+# 3. Finally we can install the azure CLI
+pip install --user azure-cli
+
+# Install kubectl
+$env:Path += ";C:\Users\jason\appdata\Roaming\Python\Python36\Scripts"
+az login
+az account set -s 59437628-48d8-49cc-9f8c-d8e9ccf216f7
+
+# Provision the platform
+# This takes 10-20 minutes to setup
+az group create --name=jvbk8sphl --location=eastus
+az acs create --orchestrator-type=kubernetes --resource-group jvbk8sphl --name=containerservice-jvbk8sphl  --dns-prefix=k8sjvbmgmt --agent-count=2 --generate-ssh-keys --windows --admin-username jvb --admin-password "p@ssw0rd123" 
+az acs kubernetes install-cli --install-location=.\kubectl.exe
+
+
+# Let's connect to the platform
+# Copy the kubernetes configuation from the cluster
+#mkdir $HOME/.kube
+#az acs kubernetes get-credentials --resource-group=jvbk8sphl --name=containerservice-jvbk8sphl --ssh-key-file C:\Users\jason\.ssh\k8sjvb
+az acs kubernetes get-credentials --resource-group=jvbk8sphl --name=containerservice-jvbk8sphl
+
+# Connect to the dashboard via kube proxy
+.\kubectl.exe proxy
+
+# Let's take a look at the nodes
+.\kubectl.exe get nodes | Out-File nodes.txt
+
+# Let's put something simple out There
+.\kubectl.exe apply -f simpleweb.yaml
+
+# The pods running simpleweb
+.\kubectl.exe get pods
+
+# The service exposing the website
+.\kubectl.exe get svc

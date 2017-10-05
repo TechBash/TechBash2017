@@ -1,0 +1,32 @@
+apiVersion: v1
+kind: Service
+metadata:
+ name: win-webserver
+ labels:
+   app: win-webserver
+spec:
+ ports:
+ - port: 8000
+ selector:
+   app: win-webserver
+ type: LoadBalancer
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+ labels:
+   app: win-webserver
+ name: win-webserver
+spec:
+ replicas: 1
+ template:
+   metadata:
+     labels:
+       app: win-webserver
+     name: win-webserver
+   spec:
+     containers:
+     - name: windowswebserver
+       image: morehumansoftware/simpleweb:latest
+     nodeSelector:
+       beta.kubernetes.io/os: windows
