@@ -1,0 +1,5 @@
+cd <root of repo>
+docker build -t anoop/signup-e2e-tests -f phase-1/testing/Dockerfile .
+docker container run --rm --network nat --env-file=app/db-credentials.env anoop/signup-e2e-tests
+
+docker exec app_signup-db_1 powershell "Invoke-SqlCmd -Query 'SELECT * FROM Prospects' -Database SignUp"
