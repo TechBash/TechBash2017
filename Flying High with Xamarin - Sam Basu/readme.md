@@ -1,7 +1,7 @@
 Content for 'Flying High with Xamarin' Session
 ============
 
-First up, thanks for attending TechBash and being @ my Xamarin session.
+First up, thanks for attending TechBash and for being @ my Xamarin session.
 
 Slides - Find above as PDF.
 
