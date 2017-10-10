@@ -1,0 +1,2 @@
+Code: https://github.com/alonf/BasicGateController/tree/BidirectionalCommunication
+Azure Setup video: https://www.youtube.com/watch?v=vq5AeLlsWx4
