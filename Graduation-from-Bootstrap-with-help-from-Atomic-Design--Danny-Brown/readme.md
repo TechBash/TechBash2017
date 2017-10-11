@@ -9,4 +9,4 @@ Slides, Code, Articles, Videos, and more:
 Danny Brown
 * http://www.dannyrb.com
 * http://dannyrb.com/blog/
-* @danny_brown13
+* [@danny_brown13](https://twitter.com/danny_brown13)
